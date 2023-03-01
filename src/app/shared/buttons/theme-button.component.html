@@ -1,0 +1,5 @@
+<button (click)="toggle()"
+    class="border-1 border-solid border-slate-300 text-white text-xl rounded-lg transition-colors duration-700 h-full px-1 dark:border-slate-600">
+    <div *ngIf="theme" class="animate-jello">🌛</div>
+    <div *ngIf="!theme" class="animate-jello">🌞</div>
+</button>

@@ -1,0 +1,30 @@
+<nav class="mb-4">
+    <div class="bg-white relative border-solid border-1 border-slate-300 rounded-2xl shadow-lg transition-all duration-700 overflow-hidden dark:bg-slate-800 dark:border-slate-700"
+        [ngClass]="showForm ? 'h-[450px]' : 'h-[71px]'">
+        <div class="flex items-center justify-between px-6 py-4">
+            <div class="font-bold text-lg uppercase h-fit dark:text-slate-500">
+                <a class="logo" routerLink="/">Post App</a>
+            </div>
+
+            <div class="flex gap-2">
+                <app-theme-button></app-theme-button>
+                <app-bookmark-button></app-bookmark-button>
+                <app-add-button (toggle)="toggleForm($event)"></app-add-button>
+            </div>
+        </div>
+
+        <div
+            class="h-[1px] w-full border-1 border-dashed border-slate-300 mb-4 transition-colors duration-500 dark:border-slate-600">
+        </div>
+
+        <div class="flex flex-col gap-4 px-4 h-[calc(100%-87px)] pb-4">
+            <!-- <app-input (field)="handleChange($event)" label="Username"></app-input> -->
+            <app-input (field)="handleChange($event)" label="Title"></app-input>
+            <app-textfield (field)="handleChange($event)" label="Description"></app-textfield>
+
+            <div class="mt-auto">
+                <app-button (click)="addPost()" label="Post"></app-button>
+            </div>
+        </div>
+    </div>
+</nav>

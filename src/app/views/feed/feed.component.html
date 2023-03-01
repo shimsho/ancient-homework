@@ -1,0 +1,16 @@
+<div>
+    <div class="mb-6">
+        <div class="flex flex-col gap-2" *ngIf="!filteredBookmarks">
+            <div *ngFor="let post of (postsData | async)?.slice(0, pageIndex * 5)">
+                <app-post [props]="post"></app-post>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2" *ngIf="filteredBookmarks">
+            <div *ngFor="let post of (postsData | async)?.slice(0, pageIndex * 5)">
+                <app-post [props]="post"></app-post>
+            </div>
+        </div>
+    </div>
+
+    <app-button (click)="pageIndex = pageIndex + 1" label="Load More..."></app-button>
+</div>

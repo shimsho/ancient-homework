@@ -1,0 +1,35 @@
+<div
+    class="relative bg-white border-solid border-1 border-slate-300 rounded-2xl p-6 shadow-lg animate-fadeGrow transition-colors duration-700 dark:bg-slate-800 dark:border-slate-700">
+    <p class="text-slate-400 text-md mb-2">@ {{props.user.username}}</p>
+
+    <div *ngIf="props.updated" class="absolute top-6 right-6 flex text-slate-400">
+        <fa-icon class="text-xs mr-2" [icon]="faPen"></fa-icon>
+        <p class="text-xs">Edited</p>
+    </div>
+
+    <div class="flex flex-col">
+        <input
+            class="text-lg font-semibold w-full truncate border-1 border-dashed rounded-md transition-all duration-700 focus:outline-none focus:shadow-outline dark:bg-slate-800 dark:border-slate-700 dark:text-slate-500"
+            [ngClass]="editing ? 'border-slate-400 px-4 py-2 mb-2 pointer-events-all' : 'border-transparent dark:border-transparent pointer-events-none'"
+            type="text" value={{props.title}} (input)="handleChange($event, 'title')" />
+
+        <textarea
+            class="w-full h-[200px] border-1 border-dashed rounded-md transition-all duration-700 resize-none focus:outline-none focus:shadow-outline dark:bg-slate-800 dark:border-slate-700 dark:text-slate-500"
+            [ngClass]="editing ? 'border-slate-400 px-4 mb-2 py-2 pointer-events-all' : 'border-transparent dark:border-transparent pointer-events-none'"
+            type="text" value={{props.body}} (input)="handleChange($event, 'body')"></textarea>
+    </div>
+
+    <div class="flex mt-4 gap-2">
+        <div class="relative flex items-center text-lg text-pink-600 transition-all duration-500"
+            [ngClass]="liked || posts.liked.includes(props.id) ? 'grayscale-0 opacity-100' : 'grayscale opacity-25'">
+            <fa-icon (click)="likePost()"
+                class="text-red cursor-pointer transition-transform duration-300 hover:scale-125 active:scale-75"
+                [icon]="faHeart"></fa-icon>
+            <p class="text-sm font-bold ml-2">{{liked || posts.liked.includes(props.id) ? '1' : '0'}}</p>
+        </div>
+        <div class="flex ml-auto gap-2">
+            <app-button (click)="startEditing()" [label]="editing ? 'Save' : 'Edit'"></app-button>
+            <app-button (click)="removePost()" label="Remove" bg="bg-pink-600 hover:bg-pink-500"></app-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<button (click)="toggleForm()" class="px-3.5 py-2 text-white rounded-lg transition-colors duration-500"
+    [ngClass]="formEnabled ? 'bg-pink-600 hover:bg-pink-500' : 'bg-sky-500  hover:bg-cyan-400'">
+
+    <div class="transition-transform duration-500" [ngClass]="formEnabled ? 'rotate-45' : 'rotate-0'">
+        <fa-icon [icon]="faPlus"></fa-icon>
+    </div>
+</button>
