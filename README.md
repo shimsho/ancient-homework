@@ -1,27 +1,35 @@
-# AngularLearning
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+# Ancient Homework
 
-## Development server
+Angular CRUD application using Apollo & GraphQl
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Main Packages ###
+@angular/core  | ^15.2.0
+------------- | -------------
+typescript  | ~4.9.4
+graphql | ^16
+@apollo/client | ^3.0.0
+@ngrx | ^15.3.0
+rxjs | ~7.8.0
 
-## Code scaffolding
+### Development ###
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This repo uses yarn to manage dependencies.
 
-## Build
+To get the dev environment running on **localhost:4200**, run the following commands:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`yarn install`
+`yarn start`
+ 
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Demo
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+https://ancient-homework.vercel.app/
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Screenshots
+
+![App Screenshot](https://i.imgur.com/Xo7Wox5.png)
+
