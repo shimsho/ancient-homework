@@ -27,12 +27,14 @@ export class FeedComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    //getPosts query from Graph
     this.postsData = this.apollo
       .watchQuery<Document>({
         query: getPosts,
       })
       .valueChanges.pipe(
         map(({ data }: { data: any }) =>
+          //Filter liked posts
           this.filteredBookmarks
             ? data.posts.data.filter((post: Post) =>
                 this.liked?.includes(post.id)
@@ -41,6 +43,7 @@ export class FeedComponent implements OnInit, OnDestroy {
         )
       );
 
+    //Listen for Bookmark & Liked updates
     this.posts$ = this.store.select((store) => store.posts);
     this.posts$.subscribe((posts) => {
       this.filteredBookmarks = posts.filterBookmarks;

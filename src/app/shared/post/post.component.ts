@@ -37,6 +37,7 @@ export class PostComponent implements OnInit {
     this.title = this.props.title;
     this.body = this.props.description;
 
+    //Initialize Posts Store
     this.posts$ = this.store.select((store) => store.posts);
     this.posts$.subscribe((posts) => {
       this.posts = posts;
@@ -53,8 +54,31 @@ export class PostComponent implements OnInit {
     else this.body = e.target.value;
   }
 
-  startEditing() {
+  startEditing(): any {
     if (this.editing) {
+      //No Edits Made
+      if (this.title === this.props.title) {
+        this.editing = false;
+        return this.toast.info('No changes made', {
+          position: 'bottom-center',
+        });
+      }
+
+      //Max Title 64 Characters
+      if (this.title.length > 64) {
+        return this.toast.error('Title over 64 characters', {
+          position: 'bottom-center',
+        });
+      }
+
+      //Max Body 256 Characters
+      if (this.body.length > 256) {
+        return this.toast.error('Title over 64 characters', {
+          position: 'bottom-center',
+        });
+      }
+
+      //updatePost Mutation
       this.apollo
         .mutate({
           mutation: editPost,
@@ -87,7 +111,14 @@ export class PostComponent implements OnInit {
     this.editing = !this.editing;
   }
 
-  removePost() {
+  removePost(): any {
+    //Invalid Id
+    if (this.props.id <= 0) {
+      return this.toast.success('Successfully removed Post!', {
+        position: 'bottom-center',
+      });
+    }
+
     this.apollo
       .mutate({
         mutation: removePost,

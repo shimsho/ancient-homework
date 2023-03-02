@@ -22,6 +22,7 @@ export const postReducer = createReducer(
       liked: [...state.liked, action['0']],
     };
   }),
+  //outdated local-state addPost
   on(addPost, (state: any, action: any) => {
     return {
       ...state,

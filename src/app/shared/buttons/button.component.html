@@ -1,4 +1,9 @@
 <button [ngClass]="buttonBg ? buttonBg : 'bg-sky-500 hover:bg-cyan-400'"
-    class="w-full min-w-[100px] px-3.5 py-2 text-white rounded-full transition-colors duration-500">
-    {{buttonLabel}}
+    class="w-full min-w-unset sm:min-w-[100px] px-3.5 py-2 text-white rounded-full transition-colors duration-500">
+    <div [ngClass]="responsiveStyle() ? 'hidden sm:block' : ''">{{buttonLabel}}</div>
+
+    <div class="block text-xl p-1 sm:hidden sm:text-unset">
+        <fa-icon *ngIf="buttonLabel==='Edit'" [icon]="faPen"></fa-icon>
+        <fa-icon *ngIf="buttonLabel==='Remove'" [icon]="faTrash"></fa-icon>
+    </div>
 </button>

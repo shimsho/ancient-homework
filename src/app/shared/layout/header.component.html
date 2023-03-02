@@ -3,7 +3,10 @@
         [ngClass]="showForm ? 'h-[450px]' : 'h-[71px]'">
         <div class="flex items-center justify-between px-6 py-4">
             <div class="font-bold text-lg uppercase h-fit dark:text-slate-500">
-                <a class="logo" routerLink="/">Post App</a>
+                <a class="logo" routerLink="/">
+                    <div class="hidden sm:block">Post App</div>
+                    <div class="block sm:hidden">PA</div>
+                </a>
             </div>
 
             <div class="flex gap-2">

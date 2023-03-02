@@ -30,6 +30,7 @@ export class HeaderComponent {
     this.showForm = toggled;
   }
 
+  //createPost mutation
   addPost() {
     this.apollo
       .mutate({
